@@ -18,7 +18,7 @@ RUN apk add --no-cache freetype libpng libjpeg-turbo freetype-dev libpng-dev lib
   apk del --no-cache freetype-dev libpng-dev libjpeg-turbo-dev
 RUN yes '' | pecl install inotify
 RUN docker-php-ext-enable inotify
-RUN docker-php-install exif
+RUN docker-php-ext-install exif
 RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/bin --filename=composer
 COPY dockerfiles/entrypoint.sh entrypoint
 RUN addgroup -g 1000 -S app && \
